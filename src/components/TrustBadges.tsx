@@ -1,59 +1,53 @@
 import { ShieldCheck, Clock, Wrench, TrendingUp } from 'lucide-react'
 
-interface Badge {
-  icon: React.ReactNode
-  title: string
-  subtitle: string
-}
-
-const badges: Badge[] = [
+const badges = [
   {
-    icon: <ShieldCheck className="w-10 h-10" />,
+    icon: ShieldCheck,
     title: 'Microsoft Certified',
     subtitle: 'Expert Partners',
+    color: 'text-primary-blue',
+    bg: 'bg-blue-50',
   },
   {
-    icon: <Clock className="w-10 h-10" />,
+    icon: Clock,
     title: '24/7 Support',
     subtitle: 'Always Available',
+    color: 'text-secondary-cyan',
+    bg: 'bg-cyan-50',
   },
   {
-    icon: <Wrench className="w-10 h-10" />,
+    icon: Wrench,
     title: 'Solving Problems',
     subtitle: 'Since 2020',
+    color: 'text-primary-blue',
+    bg: 'bg-blue-50',
   },
   {
-    icon: <TrendingUp className="w-10 h-10" />,
+    icon: TrendingUp,
     title: '99.9% Uptime',
     subtitle: 'Guaranteed',
+    color: 'text-success',
+    bg: 'bg-emerald-50',
   },
 ]
 
 export default function TrustBadges() {
   return (
-    <section
-      className="py-8 md:py-12 border-y border-white/30"
-      style={{
-        background: 'rgba(255, 255, 255, 0.5)',
-        backdropFilter: 'blur(8px)',
-      }}
-    >
+    <section className="py-10 bg-white border-b border-slate-100">
       <div className="container-custom">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {badges.map((badge, index) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {badges.map(({ icon: Icon, title, subtitle, color, bg }) => (
             <div
-              key={index}
-              className="glass-card-light flex flex-col items-center text-center p-6"
+              key={title}
+              className="clean-card flex flex-col items-center text-center p-6 gap-3"
             >
-              <div className="text-primary-blue mb-3 text-5xl">
-                {badge.icon}
+              <div className={`${bg} p-3 rounded-xl`}>
+                <Icon className={`w-7 h-7 ${color}`} aria-hidden="true" />
               </div>
-              <h3 className="font-bold text-primary-navy text-lg mb-1">
-                {badge.title}
-              </h3>
-              <p className="text-gray-600 text-sm">
-                {badge.subtitle}
-              </p>
+              <div>
+                <p className="font-bold text-primary-navy text-sm leading-tight">{title}</p>
+                <p className="text-text-gray text-xs mt-0.5">{subtitle}</p>
+              </div>
             </div>
           ))}
         </div>

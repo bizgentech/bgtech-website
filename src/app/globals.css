@@ -10,17 +10,32 @@
   body {
     @apply bg-neutral-light text-neutral-dark;
   }
+
+  *,
+  *::before,
+  *::after {
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 @layer components {
+  /* ── Buttons ── */
   .btn-primary {
-    @apply bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-200;
+    @apply bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold shadow-sm hover:bg-blue-600 hover:shadow-md transition-all duration-200 cursor-pointer;
   }
 
   .btn-secondary {
-    @apply bg-transparent border-2 border-primary-blue text-primary-blue px-6 py-3 rounded-lg font-semibold hover:bg-primary-blue hover:text-white transition-colors duration-200;
+    @apply bg-transparent border-2 border-primary-blue text-primary-blue px-6 py-3 rounded-lg font-semibold hover:bg-primary-blue hover:text-white transition-all duration-200 cursor-pointer;
   }
 
+  .btn-ghost {
+    @apply bg-transparent text-primary-blue px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200 cursor-pointer;
+  }
+
+  /* ── Layout helpers ── */
   .section-padding {
     @apply py-16 md:py-24;
   }
@@ -29,88 +44,112 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
+  /* ── Typography scale ── */
   .heading-xl {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
   }
 
   .heading-lg {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
   }
 
   .heading-md {
-    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold leading-tight;
   }
 
   .heading-sm {
-    @apply text-xl md:text-2xl font-bold;
+    @apply text-xl md:text-2xl font-bold leading-tight;
   }
 
-  /* Glassmorphism Design Tokens */
+  /* ── Clean Card (white bg, light sections) ── */
+  .clean-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+    border: 1px solid #E2E8F0;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
 
-  /* Glass Card - for dark backgrounds */
-  .glass-card {
-    backdrop-filter: blur(12px);
+  .clean-card:hover {
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+    transform: translateY(-4px);
+  }
+
+  /* ── Card on Dark Background ── */
+  .dark-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .dark-card:hover {
     background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .glass-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
 
-  /* Glass Card Light - for light backgrounds */
-  .glass-card-light {
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
-    transition: all 0.3s ease;
-  }
-
-  .glass-card-light:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
-  }
-
-  /* Glass Badge */
-  .glass-badge {
-    backdrop-filter: blur(8px);
-    background: rgba(59, 130, 246, 0.15);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+  /* ── Badges / Tags ── */
+  .badge-blue {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 9999px;
     padding: 6px 16px;
     font-size: 0.875rem;
     font-weight: 600;
+    display: inline-block;
   }
 
-  /* Glass Badge Success */
-  .glass-badge-success {
-    backdrop-filter: blur(8px);
-    background: rgba(16, 185, 129, 0.2);
-    border: 1px solid rgba(16, 185, 129, 0.4);
+  .badge-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.25);
     border-radius: 9999px;
     padding: 6px 16px;
     font-size: 0.875rem;
     font-weight: 600;
+    display: inline-block;
   }
 
-  /* Glass Badge Warning */
-  .glass-badge-warning {
-    backdrop-filter: blur(8px);
-    background: rgba(251, 191, 36, 0.2);
-    border: 1px solid rgba(251, 191, 36, 0.4);
+  .badge-warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: #D97706;
+    border: 1px solid rgba(245, 158, 11, 0.25);
     border-radius: 9999px;
     padding: 6px 16px;
     font-size: 0.875rem;
     font-weight: 600;
+    display: inline-block;
   }
 
-  /* Gradient backgrounds */
+  .badge-cyan {
+    background: rgba(6, 182, 212, 0.1);
+    color: #0891B2;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 9999px;
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  /* Small uppercase section label above headings */
+  .section-label {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 9999px;
+    padding: 6px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  /* ── Gradient backgrounds ── */
   .gradient-navy-blue {
     background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
   }
@@ -120,67 +159,39 @@
   }
 
   .gradient-light {
-    background: linear-gradient(to bottom, #F8FAFC 0%, #E2E8F0 100%);
+    background: linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 100%);
   }
 
-  /* Carousel Animations */
+  /* ── Animations ── */
   .animate-fadeIn {
-    animation: fadeIn 0.6s ease-out;
+    animation: fadeIn 0.5s ease-out both;
   }
 
   .animate-slideUp {
-    animation: slideUp 0.6s ease-out;
-    animation-fill-mode: both;
+    animation: slideUp 0.5s ease-out both;
   }
 
   .animate-slideFromLeft {
-    animation: slideFromLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: slideFromLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  .animation-delay-100 {
-    animation-delay: 0.1s;
-  }
-
-  .animation-delay-200 {
-    animation-delay: 0.2s;
-  }
-
-  .animation-delay-300 {
-    animation-delay: 0.3s;
-  }
-
-  .animation-delay-400 {
-    animation-delay: 0.4s;
-  }
+  .animation-delay-100 { animation-delay: 0.1s; }
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-300 { animation-delay: 0.3s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
 
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 
   @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes slideFromLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    from { opacity: 0; transform: translateX(-36px); }
+    to   { opacity: 1; transform: translateX(0); }
   }
 }

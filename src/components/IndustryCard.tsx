@@ -7,9 +7,9 @@ interface IndustryCardProps {
 
 export default function IndustryCard({ icon, title }: IndustryCardProps) {
   return (
-    <div className="glass-card-light p-6 md:p-8 flex flex-col items-center text-center">
-      <div className="text-primary-blue text-6xl mb-4">{icon}</div>
-      <h4 className="text-primary-navy font-semibold text-base">{title}</h4>
+    <div className="clean-card p-6 flex flex-col items-center text-center gap-3">
+      <div className="bg-blue-50 p-3 rounded-xl text-primary-blue text-3xl">{icon}</div>
+      <p className="text-primary-navy font-semibold text-sm leading-snug">{title}</p>
     </div>
   )
 }

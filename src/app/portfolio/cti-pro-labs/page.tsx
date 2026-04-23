@@ -1,127 +1,152 @@
 import Link from 'next/link'
-import TechStack from '@/components/TechStack'
 import CTASection from '@/components/CTASection'
-import { FiCheck, FiArrowLeft } from 'react-icons/fi'
+import { Check, ArrowLeft } from 'lucide-react'
 
 export const metadata = {
-  title: 'CTI Pro Labs - Laboratory Management System | BizGen Technologies',
-  description: 'Laboratory management system for construction testing operations with automated workflows and real-time tracking.',
+  title: 'CTI Pro Labs — Portfolio | BizGen Technologies LLC',
+  description:
+    'Laboratory management system for construction testing operations with automated workflows, real-time sample tracking, and compliance reporting.',
 }
+
+const tech = ['React', 'NestJS', 'PostgreSQL', 'PWA', 'TypeScript', 'Docker']
+
+const challenges = [
+  'Manual paper-based sample tracking causing lost records and compliance issues',
+  'No real-time visibility into test status across multiple lab locations',
+  'Manual report generation taking hours per project',
+  'Disconnected systems for scheduling, inventory, and billing',
+]
+
+const solutions = [
+  'Digital sample chain-of-custody with QR code scanning',
+  'Real-time dashboard with live test status for all locations',
+  'Automated report generation with digital signature support',
+  'Unified platform covering scheduling, inventory, billing, and compliance',
+]
+
+const features = [
+  'Sample intake & chain of custody tracking',
+  'Test result entry with automated pass/fail logic',
+  'Automated PDF report generation',
+  'Multi-location support',
+  'Client portal for project status',
+  'Inventory management for testing supplies',
+  'Billing & invoicing module',
+  'ASTM/ACI compliance templates',
+]
 
 export default function CTIProLabsPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-navy to-primary-blue section-padding">
+      <section className="gradient-navy-blue section-padding">
         <div className="container-custom">
-          <Link href="/#portfolio" className="inline-flex items-center text-white hover:text-gray-200 mb-6 transition-colors">
-            <FiArrowLeft className="mr-2" />
-            Back to Portfolio
+          <Link href="/#portfolio" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm mb-8 transition-colors">
+            <ArrowLeft size={15} /> Back to Portfolio
           </Link>
-          <div className="mb-8">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-              <h1 className="heading-xl text-white mb-4 md:mb-0">CTI Pro Labs</h1>
-              <span className="bg-warning/20 text-warning px-4 py-2 rounded-full font-bold inline-block w-fit">
-                In Development
-              </span>
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <span className="badge-warning">In Development</span>
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-white/10 text-white/70 border border-white/15">
+              Construction Tech
+            </span>
+          </div>
+          <h1 className="heading-xl text-white mb-4">CTI Pro Labs</h1>
+          <p className="text-white/80 text-xl max-w-3xl leading-relaxed">
+            Laboratory management system for construction testing operations — automating sample workflows, tracking chain of custody, and generating compliance reports.
+          </p>
+        </div>
+      </section>
+
+      <section className="section-padding gradient-light">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div className="lg:col-span-2">
+              <span className="section-label mb-4">The Project</span>
+              <h2 className="heading-md text-primary-navy mt-4 mb-5">Overview</h2>
+              <p className="text-text-gray text-base leading-relaxed mb-4">
+                Construction testing laboratories perform critical quality assurance work — soil compaction, concrete strength, asphalt density — that underpins building safety. But most labs still run on paper logs, spreadsheets, and disconnected tools.
+              </p>
+              <p className="text-text-gray text-base leading-relaxed mb-4">
+                CTI Pro Labs replaces that chaos with a unified digital platform that tracks every sample from intake through final report, automates compliance documentation, and gives project managers real-time visibility across all active tests.
+              </p>
+              <p className="text-text-gray text-base leading-relaxed">
+                Built as a Progressive Web App (PWA), it works on any device — including tablets in the field with offline support.
+              </p>
             </div>
-            <p className="text-gray-200 text-xl">
-              Laboratory Management System - Modernizing construction testing operations
-            </p>
+            <div className="space-y-4">
+              {[
+                { label: 'Status', value: 'In Development' },
+                { label: 'Industry', value: 'Construction & Testing' },
+              ].map(({ label, value }) => (
+                <div key={label} className="clean-card p-6">
+                  <p className="text-xs font-bold uppercase tracking-wide text-text-gray mb-1">{label}</p>
+                  <p className="text-primary-navy font-semibold">{value}</p>
+                </div>
+              ))}
+              <div className="clean-card p-6">
+                <p className="text-xs font-bold uppercase tracking-wide text-text-gray mb-3">Tech Stack</p>
+                <div className="flex flex-wrap gap-2">
+                  {tech.map((t) => <span key={t} className="badge-blue">{t}</span>)}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Project Image */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="bg-gradient-to-br from-primary-blue to-secondary-cyan h-96 rounded-lg mb-8 flex items-center justify-center">
-            <span className="text-white text-8xl opacity-50">🔬</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* The Challenge */}
-            <div>
-              <h3 className="heading-sm text-primary-navy mb-4">The Challenge</h3>
-              <p className="text-text-gray mb-4 leading-relaxed">
-                CTI Pro Labs, a construction materials testing laboratory, was managing operations across multiple disconnected systems - spreadsheets, paper forms, and legacy software that didn't communicate.
-              </p>
-              <p className="text-text-gray leading-relaxed">
-                Their field technicians needed offline access to work orders, the lab needed automated calculations, and clients wanted real-time visibility into testing status.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="clean-card p-8">
+              <h3 className="text-xl font-bold text-primary-navy mb-5">The Challenge</h3>
+              <ul className="space-y-3">
+                {challenges.map((c) => (
+                  <li key={c} className="flex items-start gap-3 text-sm text-text-gray">
+                    <span className="w-2 h-2 rounded-full bg-warning mt-1.5 flex-shrink-0" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            {/* Our Solution */}
-            <div>
-              <h3 className="heading-sm text-primary-navy mb-4">Our Solution</h3>
-              <p className="text-text-gray mb-4 leading-relaxed">
-                We built a comprehensive Progressive Web App (PWA) that connects field operations, laboratory testing, client portals, and back-office administration into one unified system.
-              </p>
-              <p className="text-text-gray leading-relaxed">
-                The offline-capable mobile app lets technicians work without internet, automatically syncing when connectivity returns. Automated calculations reduce errors, and real-time notifications keep everyone informed.
-              </p>
+            <div className="clean-card p-8">
+              <h3 className="text-xl font-bold text-primary-navy mb-5">Our Solution</h3>
+              <ul className="space-y-3">
+                {solutions.map((s) => (
+                  <li key={s} className="flex items-start gap-3 text-sm text-text-gray">
+                    <Check size={14} className="text-success mt-0.5 flex-shrink-0" />
+                    {s}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Key Features */}
-          <div className="mt-12">
-            <h3 className="heading-sm text-primary-navy mb-6">Key Features</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[
-                'Work order management with automated assignment',
-                'Digital chain of custody (GPS-verified)',
-                'Offline-capable mobile app for field technicians',
-                'Laboratory testing module with auto-calculations',
-                'PE-stamped engineering certifications',
-                'Client self-service portal',
-                'HR management (certifications, time tracking)',
-                'QuickBooks integration for billing',
-                'Real-time notifications',
-              ].map((feature, index) => (
-                <div key={index} className="flex items-start">
-                  <FiCheck className="text-success text-xl mt-1 mr-3 flex-shrink-0" />
-                  <span className="text-neutral-dark">{feature}</span>
+      <section className="section-padding gradient-light">
+        <div className="container-custom max-w-4xl">
+          <div className="text-center mb-10">
+            <span className="section-label mb-4">Features</span>
+            <h2 className="heading-lg text-primary-navy mt-4">Key Capabilities</h2>
+          </div>
+          <div className="clean-card p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {features.map((f) => (
+                <div key={f} className="flex items-center gap-3 text-sm text-text-gray">
+                  <Check size={14} className="text-success flex-shrink-0" />
+                  {f}
                 </div>
               ))}
             </div>
           </div>
-
-          {/* Tech Stack */}
-          <div className="mt-12 bg-neutral-light p-8 rounded-lg">
-            <h3 className="heading-sm text-primary-navy mb-6">Tech Stack</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <TechStack
-                title="Frontend"
-                technologies={['React 18 + Vite', 'Tailwind CSS', 'PWA']}
-              />
-              <TechStack
-                title="Backend"
-                technologies={['NestJS', 'RESTful API']}
-              />
-              <TechStack
-                title="Database"
-                technologies={['PostgreSQL', 'Supabase']}
-              />
-              <TechStack
-                title="Infrastructure"
-                technologies={['AWS', 'Docker']}
-              />
-              <TechStack
-                title="Integrations"
-                technologies={['SendGrid', 'Google Maps API', 'QuickBooks']}
-              />
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* CTA */}
       <CTASection
-        title="Need a Custom Solution Like This?"
-        description="Let's discuss how we can build software tailored to your industry"
-        primaryButtonText="Start Your Project"
+        title="Want a Similar Solution?"
+        description="We build custom software for complex operational workflows. Let's talk about your needs."
+        primaryButtonText="Start a Project"
         primaryButtonHref="/contact"
-        secondaryButtonText="View More Projects"
+        secondaryButtonText="View All Projects"
         secondaryButtonHref="/#portfolio"
       />
     </>

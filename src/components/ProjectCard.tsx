@@ -1,45 +1,51 @@
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 interface ProjectCardProps {
   title: string
   description: string
   tags: string[]
   href?: string
-  status?: string
+  status?: 'In Development' | 'Beta' | 'Operational' | 'Active'
+  gradient?: string
 }
 
-export default function ProjectCard({ title, description, tags, href, status }: ProjectCardProps) {
-  const getStatusBadgeClass = (status: string) => {
-    if (status === 'Active') {
-      return 'glass-badge-success text-white'
-    }
-    return 'glass-badge-warning text-white'
+function StatusBadge({ status }: { status: string }) {
+  if (status === 'Operational' || status === 'Active') {
+    return <span className="badge-success">{status}</span>
   }
+  if (status === 'Beta') {
+    return <span className="badge-cyan">{status}</span>
+  }
+  return <span className="badge-warning">{status}</span>
+}
+
+export default function ProjectCard({ title, description, tags, href, status, gradient }: ProjectCardProps) {
+  const bg = gradient ?? 'from-blue-600 to-cyan-500'
 
   const content = (
-    <div className="glass-card h-full flex flex-col overflow-hidden group">
-      {/* Placeholder Image with status badge */}
-      <div className="relative bg-gradient-to-br from-primary-blue/20 to-secondary-cyan/20 h-48 flex items-center justify-center rounded-xl overflow-hidden mb-5">
-        <span className="text-white text-6xl opacity-30">📱</span>
+    <div className="dark-card h-full flex flex-col overflow-hidden group cursor-pointer">
+      {/* Placeholder image area */}
+      <div className={`relative bg-gradient-to-br ${bg} h-44 flex items-center justify-center`}>
+        <span className="text-white/20 text-5xl font-black select-none">{title.slice(0, 2).toUpperCase()}</span>
         {status && (
-          <span className={`absolute top-3 right-3 ${getStatusBadgeClass(status)}`}>
-            {status}
-          </span>
+          <div className="absolute top-3 right-3">
+            <StatusBadge status={status} />
+          </div>
         )}
       </div>
 
       {/* Content */}
-      <div className="px-6 pb-6 flex-1 flex flex-col">
-        <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
+      <div className="p-6 flex flex-col flex-1">
+        <h3 className="text-lg font-bold text-white mb-2 leading-snug">{title}</h3>
+        <p className="text-slate-300 text-sm leading-relaxed flex-1 mb-4">{description}</p>
 
-        <p className="text-white/80 leading-relaxed mb-4 flex-1">{description}</p>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mt-auto mb-4">
-          {tags.map((tag, index) => (
+        {/* Tech tags */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          {tags.map((tag) => (
             <span
-              key={index}
-              className="glass-badge text-white text-xs"
+              key={tag}
+              className="px-2.5 py-1 rounded-full text-xs font-medium bg-white/10 text-white/80 border border-white/10"
             >
               {tag}
             </span>
@@ -47,21 +53,8 @@ export default function ProjectCard({ title, description, tags, href, status }: 
         </div>
 
         {href && (
-          <div className="mt-2 px-6 py-3 border-2 border-white/30 bg-white/5 backdrop-blur-[8px] text-white font-semibold flex items-center justify-center rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-300 group-hover:scale-[1.02]">
-            View Details
-            <svg
-              className="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+          <div className="flex items-center gap-1.5 text-primary-blue font-semibold text-sm group-hover:gap-2.5 transition-all duration-200">
+            View Details <ArrowRight size={14} />
           </div>
         )}
       </div>
@@ -70,7 +63,7 @@ export default function ProjectCard({ title, description, tags, href, status }: 
 
   if (href) {
     return (
-      <Link href={href} className="block h-full">
+      <Link href={href} className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded-2xl">
         {content}
       </Link>
     )

@@ -1,40 +1,36 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import { ArrowRight } from 'lucide-react'
 
 interface ServiceCardProps {
   icon: ReactNode
   title: string
   description: string
   href?: string
+  iconBg?: string
+  badge?: string
 }
 
-export default function ServiceCard({ icon, title, description, href }: ServiceCardProps) {
+export default function ServiceCard({ icon, title, description, href, iconBg, badge }: ServiceCardProps) {
   const content = (
-    <div className="glass-card-light p-6 md:p-8 h-full group">
-      {/* Icon container with gradient */}
-      <div className="bg-gradient-to-br from-primary-blue to-secondary-cyan p-5 rounded-xl mb-5 inline-flex items-center justify-center shadow-[0_4px_16px_rgba(59,130,246,0.2)] group-hover:shadow-[0_6px_20px_rgba(59,130,246,0.3)] transition-all duration-300">
-        <div className="text-white text-4xl">{icon}</div>
+    <div className="clean-card p-8 h-full flex flex-col group cursor-pointer">
+      {/* Icon */}
+      <div
+        className={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-5 ${iconBg ?? 'bg-blue-50'}`}
+      >
+        <span className="text-primary-blue text-2xl">{icon}</span>
       </div>
 
-      <h3 className="text-2xl font-bold text-primary-navy mb-3">{title}</h3>
-      <p className="text-gray-600 leading-relaxed mb-4">{description}</p>
+      {badge && (
+        <span className="section-label mb-3 self-start">{badge}</span>
+      )}
+
+      <h3 className="text-xl font-bold text-primary-navy mb-3 leading-snug">{title}</h3>
+      <p className="text-text-gray text-sm leading-relaxed flex-1">{description}</p>
 
       {href && (
-        <div className="mt-4 text-primary-blue font-semibold flex items-center group-hover:translate-x-1 transition-transform duration-300">
-          Learn More
-          <svg
-            className="w-4 h-4 ml-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
+        <div className="mt-5 flex items-center text-primary-blue font-semibold text-sm group-hover:gap-2 gap-1 transition-all duration-200">
+          Learn More <ArrowRight size={15} />
         </div>
       )}
     </div>
@@ -42,7 +38,7 @@ export default function ServiceCard({ icon, title, description, href }: ServiceC
 
   if (href) {
     return (
-      <Link href={href} className="block h-full">
+      <Link href={href} className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded-2xl">
         {content}
       </Link>
     )

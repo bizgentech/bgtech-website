@@ -26,8 +26,13 @@ const config: Config = {
           gray: '#64748B',
         },
       },
+      fontFamily: {
+        heading: ['var(--font-lexend)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-source-sans)', 'system-ui', 'sans-serif'],
+      },
     },
   },
   plugins: [],
 }
+
 export default config
