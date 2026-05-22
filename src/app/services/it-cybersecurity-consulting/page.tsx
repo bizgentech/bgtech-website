@@ -1,77 +1,87 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import CTASection from '@/components/CTASection'
 import {
   Shield,
   Check,
   Server,
   Lock,
   Wifi,
-  Headphones,
+  FileText,
   Monitor,
-  ShieldAlert,
+  Headphones,
   ArrowRight,
+  Plus,
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'IT & Cybersecurity Consulting | BizGen Technologies LLC',
+  title: 'Concierge Managed IT & Cybersecurity | BizGen Technologies LLC',
   description:
-    'Managed IT support, Microsoft 365, endpoint security, and 24/7 help desk for businesses of 10–50 users. Less than the cost of one IT engineer.',
+    'Practical IT management for small businesses: workstations, servers, firewalls, Microsoft 365, documentation, monitoring, cybersecurity basics, and scheduled visits.',
 }
 
 const features = [
   {
     icon: Server,
     title: 'Managed IT Support',
-    desc: 'Proactive monitoring, patch management, and issue resolution — before small problems become big outages.',
-  },
-  {
-    icon: Lock,
-    title: 'Cybersecurity Protection',
-    desc: 'Endpoint protection, threat detection, email security, and security awareness training for your team.',
+    desc: 'Remote support, workstation care, issue resolution, scheduled maintenance, and practical technology guidance.',
   },
   {
     icon: Monitor,
     title: 'Microsoft 365 Administration',
-    desc: 'Full M365 management: Teams, SharePoint, Exchange, Intune, Azure AD, and licensing optimization.',
+    desc: 'User management, licenses, MFA, Outlook, Teams, OneDrive, shared mailboxes, and access control.',
   },
   {
     icon: Wifi,
-    title: 'Network Management',
-    desc: 'Firewall configuration, VPN, Wi-Fi management, and bandwidth monitoring to keep your network secure and fast.',
+    title: 'Network & Firewall Management',
+    desc: 'Firewall rules, VPN, network checks, configuration backup, and basic uptime monitoring.',
+  },
+  {
+    icon: FileText,
+    title: 'IT Documentation & Inventory',
+    desc: 'Device inventory, user records, vendor information, network details, and password/vault process.',
+  },
+  {
+    icon: Lock,
+    title: 'Cybersecurity Essentials',
+    desc: 'Endpoint protection, MFA guidance, email security options, awareness training, and basic risk review.',
   },
   {
     icon: Headphones,
-    title: '24/7 Help Desk',
-    desc: 'Real humans answering the phone. We resolve tickets fast so your team stays productive.',
-  },
-  {
-    icon: ShieldAlert,
-    title: 'Compliance & Risk',
-    desc: 'Cybersecurity assessments, vulnerability scanning, and guidance on HIPAA, PCI-DSS, and SOC2 requirements.',
+    title: 'Concierge IT Guidance',
+    desc: 'Vendor coordination, equipment purchasing advice, technology roadmap, and scheduled business reviews.',
   },
 ]
 
 const included = [
-  'Unlimited help desk tickets',
-  'Remote & on-site support',
-  'Microsoft 365 administration',
-  'Antivirus & endpoint protection',
-  'Network monitoring 24/7',
-  'Monthly security reports',
-  'Backup & disaster recovery planning',
-  'Hardware procurement assistance',
-  'New user onboarding / offboarding',
-  'Security awareness training',
+  'Remote support',
+  'Workstation management',
+  'Microsoft 365 basic administration',
+  'Inventory tracking',
+  'Password/vault process',
+  'Uptime monitoring for critical systems',
+  'Vendor coordination',
+  'Basic printer troubleshooting',
+  'Scheduled maintenance by plan',
+  'Technology recommendations',
 ]
 
 const idealFor = [
-  'Small businesses (10–50 users)',
-  'Companies without a dedicated IT team',
-  'Organizations upgrading to Microsoft 365',
-  'Businesses concerned about ransomware',
-  'Remote or hybrid workforces',
-  'Companies needing compliance support',
+  'Small businesses without internal IT',
+  'Offices with 5–25 workstations',
+  'Businesses using Microsoft 365',
+  'Companies with servers, firewalls, or shared network resources',
+  'Owners who need technology guidance, not just ticket support',
+  'Businesses that want documentation, monitoring, and planned improvements',
+]
+
+const addOns = [
+  'Cybersecurity Essentials',
+  'User & Device Setup',
+  'Staff Training',
+  'Backup & Recovery Review',
+  'Extra Onsite Visit Pack',
+  'Website & Digital Presence',
+  'Third-Party App Coordination',
 ]
 
 export default function ITCybersecurityPage() {
@@ -82,7 +92,7 @@ export default function ITCybersecurityPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/services/it-consulting-hero.jpeg"
-            alt="IT and cybersecurity consulting professionals"
+            alt="Concierge managed IT and cybersecurity for small businesses"
             fill
             className="object-cover"
             priority
@@ -99,35 +109,35 @@ export default function ITCybersecurityPage() {
               Service #1
             </span>
             <h1 className="heading-xl text-white mb-5">
-              IT & Cybersecurity<br />Consulting
+              Concierge Managed IT<br />&amp; Cybersecurity
             </h1>
             <p className="text-white/80 text-xl leading-relaxed mb-8">
-              Get an entire team of Microsoft-certified IT professionals and cybersecurity specialists for less than hiring one full-time engineer.
+              Practical IT management for small businesses: workstations, servers, firewalls, Microsoft 365, documentation, monitoring, cybersecurity basics, scheduled visits, and technology guidance.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact" className="inline-flex items-center gap-2 bg-primary-blue text-white font-bold px-7 py-3.5 rounded-xl shadow hover:bg-blue-600 transition-colors">
-                Get a Free Assessment <ArrowRight size={16} />
+                Request IT Assessment <ArrowRight size={16} />
               </Link>
-              <Link href="/contact" className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/10 transition-colors">
-                View Pricing
+              <Link href="#services" className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/10 transition-colors">
+                View Services
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Value Prop ── */}
+      {/* ── Metrics Row ── */}
       <section className="py-12 bg-white border-b border-slate-100">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: '<$1K/mo', label: 'Starting Price' },
-              { value: '24/7', label: 'Monitoring & Support' },
-              { value: '<2hr', label: 'Avg. Response Time' },
-              { value: '99.9%', label: 'Uptime Guarantee' },
+              { value: 'From $599', label: 'IT Assessment' },
+              { value: 'Monthly Plans', label: 'Based on Business Size' },
+              { value: 'Onsite Visits', label: 'Included by Plan' },
+              { value: 'Assessment Credit', label: 'Applied If You Sign' },
             ].map(({ value, label }) => (
               <div key={label} className="text-center">
-                <p className="text-3xl md:text-4xl font-extrabold text-primary-blue mb-1">{value}</p>
+                <p className="text-2xl md:text-3xl font-extrabold text-primary-blue mb-1">{value}</p>
                 <p className="text-text-gray text-sm">{label}</p>
               </div>
             ))}
@@ -135,14 +145,16 @@ export default function ITCybersecurityPage() {
         </div>
       </section>
 
-      {/* ── Features ── */}
-      <section className="section-padding gradient-light">
+      {/* ── Services ── */}
+      <section id="services" className="section-padding gradient-light">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <span className="section-label mb-4">What&apos;s Included</span>
-            <h2 className="heading-lg text-primary-navy mt-4 mb-4">Everything Your Business Needs</h2>
+            <span className="section-label mb-4">What We Offer</span>
+            <h2 className="heading-lg text-primary-navy mt-4 mb-4">
+              Everything Your Business Needs to Stay Organized, Secure, and Supported
+            </h2>
             <p className="text-text-gray text-lg max-w-2xl mx-auto">
-              One monthly fee covers your entire IT infrastructure — hardware, software, security, and support.
+              BizGen helps small businesses manage daily technology, reduce risks, document key systems, and plan practical improvements without hiring an internal IT department.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -159,7 +171,7 @@ export default function ITCybersecurityPage() {
         </div>
       </section>
 
-      {/* ── What&apos;s Included + Ideal For ── */}
+      {/* ── Included + Ideal For ── */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
@@ -200,43 +212,104 @@ export default function ITCybersecurityPage() {
         </div>
       </section>
 
-      {/* ── Pricing ── */}
+      {/* ── Pricing: Assessment ── */}
       <section className="section-padding gradient-light">
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="section-label mb-4">Pricing</span>
-            <h2 className="heading-lg text-primary-navy mt-4 mb-4">Simple, Transparent Pricing</h2>
-            <p className="text-text-gray text-lg max-w-xl mx-auto">
-              No hidden fees. No surprise invoices. Just one predictable monthly cost.
-            </p>
+            <h2 className="heading-lg text-primary-navy mt-4 mb-4">IT Assessment &amp; Improvement Roadmap</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { tier: 'Essentials', users: '10–20 users', price: 'From $799/mo', features: ['Help Desk (business hours)', 'Antivirus & Patching', 'M365 Administration', 'Monthly Reports'] },
-              { tier: 'Business', users: '20–35 users', price: 'From $1,499/mo', features: ['24/7 Help Desk', 'Advanced Endpoint Security', 'Network Monitoring', 'Backup & DR Planning', 'Quarterly Assessments'], highlight: true },
-              { tier: 'Enterprise', users: '35–50+ users', price: 'Custom Quote', features: ['Everything in Business', 'On-Site Support', 'Compliance Guidance', 'Dedicated Account Manager', 'Custom SLA'] },
-            ].map(({ tier, users, price, features: f, highlight }) => (
+              {
+                tier: 'Essential Assessment',
+                price: '$599',
+                desc: 'Best for small offices with basic IT needs.',
+              },
+              {
+                tier: 'Business Assessment',
+                price: '$999',
+                desc: 'Best for growing businesses with Microsoft 365, network, and multiple users.',
+                highlight: true,
+                badge: 'Most Common',
+              },
+              {
+                tier: 'Advanced Assessment',
+                price: '$1,399',
+                desc: 'Best for businesses with servers, firewalls, or more complex environments.',
+              },
+            ].map(({ tier, price, desc, highlight, badge }) => (
               <div
                 key={tier}
                 className={`rounded-2xl p-8 ${highlight ? 'gradient-blue-cyan text-white shadow-xl scale-[1.02]' : 'clean-card'}`}
               >
-                <p className={`text-xs font-bold uppercase tracking-widest mb-1 ${highlight ? 'text-white/70' : 'text-text-gray'}`}>{users}</p>
-                <h3 className={`text-xl font-extrabold mb-1 ${highlight ? 'text-white' : 'text-primary-navy'}`}>{tier}</h3>
-                <p className={`text-2xl font-extrabold mb-5 ${highlight ? 'text-white' : 'text-primary-blue'}`}>{price}</p>
-                <ul className="space-y-2.5 mb-8">
-                  {f.map((item) => (
-                    <li key={item} className={`flex items-start gap-2.5 text-sm ${highlight ? 'text-white/90' : 'text-text-gray'}`}>
-                      <Check size={13} className={`mt-0.5 flex-shrink-0 ${highlight ? 'text-white' : 'text-success'}`} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                {badge && (
+                  <span className={`inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3 ${highlight ? 'bg-white/20 text-white' : 'bg-blue-50 text-primary-blue'}`}>
+                    {badge}
+                  </span>
+                )}
+                <h3 className={`text-lg font-extrabold mb-1 ${highlight ? 'text-white' : 'text-primary-navy'}`}>{tier}</h3>
+                <p className={`text-3xl font-extrabold mb-4 ${highlight ? 'text-white' : 'text-primary-blue'}`}>{price}</p>
+                <p className={`text-sm leading-relaxed mb-8 ${highlight ? 'text-white/85' : 'text-text-gray'}`}>{desc}</p>
                 <Link
                   href="/contact"
                   className={`block text-center font-bold py-3 rounded-xl text-sm transition-all ${highlight ? 'bg-white text-primary-blue hover:bg-blue-50' : 'btn-primary'}`}
                 >
-                  Get Started
+                  Request Assessment
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-text-gray text-sm mt-8 max-w-2xl mx-auto">
+            If you become a managed IT client, your assessment fee is credited back through monthly invoice credits.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Pricing: Managed IT Plans ── */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-4">
+            <span className="section-label mb-4">Monthly Plans</span>
+            <h2 className="heading-lg text-primary-navy mt-4 mb-4">Concierge Managed IT Plans</h2>
+            <p className="text-text-gray text-lg max-w-2xl mx-auto">
+              Monthly service is customized based on the number of workstations, servers, firewalls, Microsoft 365 users, onsite needs, and support requirements.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-10">
+            {[
+              {
+                tier: 'Concierge Small',
+                price: 'Starting at $599/mo',
+                desc: 'For small offices with basic IT needs.',
+              },
+              {
+                tier: 'Concierge Business',
+                price: 'Starting at $999/mo',
+                desc: 'For growing businesses with multiple users, Microsoft 365, firewall, and scheduled support.',
+                highlight: true,
+              },
+              {
+                tier: 'Concierge Plus',
+                price: 'Custom Quote',
+                desc: 'For businesses with servers, multiple locations, advanced security needs, or frequent onsite requirements.',
+              },
+            ].map(({ tier, price, desc, highlight }) => (
+              <div
+                key={tier}
+                className={`rounded-2xl p-8 ${highlight ? 'gradient-blue-cyan text-white shadow-xl scale-[1.02]' : 'clean-card'}`}
+              >
+                <h3 className={`text-lg font-extrabold mb-1 ${highlight ? 'text-white' : 'text-primary-navy'}`}>{tier}</h3>
+                <p className={`text-2xl font-extrabold mb-4 ${highlight ? 'text-white' : 'text-primary-blue'}`}>{price}</p>
+                <p className={`text-sm leading-relaxed mb-8 ${highlight ? 'text-white/85' : 'text-text-gray'}`}>{desc}</p>
+                <Link
+                  href="/contact"
+                  className={`block text-center font-bold py-3 rounded-xl text-sm transition-all ${highlight ? 'bg-white text-primary-blue hover:bg-blue-50' : 'btn-primary'}`}
+                >
+                  Get a Quote
                 </Link>
               </div>
             ))}
@@ -244,14 +317,54 @@ export default function ITCybersecurityPage() {
         </div>
       </section>
 
-      <CTASection
-        title="Ready to Secure Your Business?"
-        description="Get a free IT assessment — no commitment, no pressure."
-        primaryButtonText="Free Assessment"
-        primaryButtonHref="/contact"
-        secondaryButtonText="Learn About Us"
-        secondaryButtonHref="/about"
-      />
+      {/* ── Add-Ons ── */}
+      <section className="section-padding gradient-light">
+        <div className="container-custom max-w-4xl">
+          <div className="text-center mb-10">
+            <span className="section-label mb-4">Optional</span>
+            <h2 className="heading-lg text-primary-navy mt-4 mb-4">Optional Add-Ons</h2>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {addOns.map((item) => (
+              <div key={item} className="flex items-center gap-2 clean-card px-5 py-3 text-sm font-medium text-primary-navy">
+                <Plus size={14} className="text-primary-blue flex-shrink-0" />
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="section-padding gradient-blue-cyan">
+        <div className="container-custom text-center max-w-3xl">
+          <h2 className="heading-lg text-white mb-4">
+            Ready to Organize and Improve Your Business IT?
+          </h2>
+          <p className="text-white/80 text-lg mb-8">
+            Start with an IT Assessment and receive a practical short- and mid-term improvement roadmap.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-white text-primary-blue font-bold px-7 py-3.5 rounded-xl shadow hover:bg-blue-50 transition-colors"
+            >
+              Request IT Assessment <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/10 transition-colors"
+            >
+              Contact BizGen
+            </Link>
+          </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-2 text-white/70 text-sm">
+            <span>jvega@bgtecnologies.com</span>
+            <span>+1 (786) 978-3032</span>
+            <a href="https://www.bgtecnologies.com" className="hover:text-white transition-colors">www.bgtecnologies.com</a>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
