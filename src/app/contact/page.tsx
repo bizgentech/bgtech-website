@@ -8,6 +8,8 @@ const inputClass =
 
 const labelClass = 'block text-neutral-dark font-semibold text-sm mb-1.5'
 
+const WEB3FORMS_KEY = 'e8579c38-f49c-4b06-a821-e0f09e1cdc8a'
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -16,10 +18,10 @@ export default function ContactPage() {
     phone: '',
     service: '',
     projectDescription: '',
-    budget: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -30,11 +32,32 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    await new Promise((r) => setTimeout(r, 1000))
-    setIsSubmitting(false)
-    setSubmitted(true)
-    setFormData({ name: '', email: '', company: '', phone: '', service: '', projectDescription: '', budget: '' })
-    setTimeout(() => setSubmitted(false), 6000)
+    setError(false)
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: 'New Contact Form Submission — BizGen Technologies',
+          from_name: formData.name,
+          ...formData,
+        }),
+      })
+      const data = await res.json()
+      if (data.success) {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', company: '', phone: '', service: '', projectDescription: '' })
+        setTimeout(() => setSubmitted(false), 6000)
+      } else {
+        setError(true)
+      }
+    } catch {
+      setError(true)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -71,7 +94,16 @@ export default function ContactPage() {
                     role="alert"
                     className="bg-emerald-50 border border-emerald-200 text-emerald-700 px-5 py-4 rounded-xl mb-6 text-sm font-medium"
                   >
-                    Thank you! We&apos;ll get back to you within 24 hours.
+                    ✓ Thank you! We&apos;ll get back to you within 24 hours.
+                  </div>
+                )}
+
+                {error && (
+                  <div
+                    role="alert"
+                    className="bg-red-50 border border-red-200 text-red-700 px-5 py-4 rounded-xl mb-6 text-sm font-medium"
+                  >
+                    Something went wrong. Please try again or email us directly at info@bgtecnologies.com.
                   </div>
                 )}
 
@@ -178,25 +210,7 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  {/* Budget */}
-                  <div>
-                    <label htmlFor="budget" className={labelClass}>Budget Range (Optional)</label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className={inputClass}
-                    >
-                      <option value="">Select a range…</option>
-                      <option value="under-10k">Under $10,000</option>
-                      <option value="10k-25k">$10,000 – $25,000</option>
-                      <option value="25k-50k">$25,000 – $50,000</option>
-                      <option value="50k-100k">$50,000 – $100,000</option>
-                      <option value="100k-plus">$100,000+</option>
-                      <option value="not-sure">Not Sure Yet</option>
-                    </select>
-                  </div>
+
 
                   <button
                     type="submit"
