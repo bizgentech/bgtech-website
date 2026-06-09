@@ -212,6 +212,9 @@ export default function ContactPage() {
 
 
 
+                  {/* Honeypot — hidden from humans, blocks bots */}
+                  <input type="checkbox" name="botcheck" className="hidden" aria-hidden="true" />
+
                   <button
                     type="submit"
                     disabled={isSubmitting}
