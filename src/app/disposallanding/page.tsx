@@ -168,6 +168,7 @@ export default function DisposalLandingPage() {
             alt="IT equipment being prepared for secure disposal"
             fill
             className="object-cover"
+            style={{ objectPosition: '50% 35%' }}
             priority
             sizes="100vw"
           />

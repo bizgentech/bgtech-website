@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import HeroBackground from '@/components/HeroBackground'
 import CTASection from '@/components/CTASection'
 import { Recycle, Check, Truck, FileCheck, ShieldCheck, Leaf, ArrowRight } from 'lucide-react'
 
@@ -43,22 +43,13 @@ export default function ITEquipmentDisposalPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden min-h-[520px] flex items-center bg-primary-navy">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/services/equipment-disposal-hero.png"
-            alt="IT equipment pickup and data destruction service"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to right, rgba(15,23,42,0.93) 0%, rgba(15,23,42,0.78) 38%, rgba(15,23,42,0.45) 62%, rgba(15,23,42,0.15) 85%, transparent 100%)' }}
-          />
-        </div>
-        <div className="container-custom relative z-10 py-24">
+      <section className="relative overflow-hidden min-h-[460px] sm:min-h-[500px] lg:min-h-[560px] flex items-center bg-primary-navy">
+        <HeroBackground
+          src="/images/services/equipment-disposal-hero.png"
+          alt="IT equipment pickup and data destruction service"
+          position="center"
+        />
+        <div className="container-custom relative z-10 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 bg-white/10 text-white border border-white/15">
               Service #3

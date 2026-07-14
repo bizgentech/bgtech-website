@@ -1,31 +1,18 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import HeroBackground from '@/components/HeroBackground'
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[600px] lg:min-h-[680px] flex items-center bg-primary-navy">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero/it-management.jpg"
-          alt="Technology and digital solutions for growing businesses"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(to right, rgba(15,23,42,0.94) 0%, rgba(15,23,42,0.80) 40%, rgba(15,23,42,0.48) 66%, rgba(15,23,42,0.18) 86%, transparent 100%)',
-          }}
-        />
-      </div>
+    <section className="relative overflow-hidden min-h-[520px] sm:min-h-[580px] lg:min-h-[660px] flex items-center bg-primary-navy">
+      <HeroBackground
+        src="/images/hero/it-management.jpg"
+        alt="Technology and digital solutions for growing businesses"
+        position="50% 30%"
+      />
 
       {/* Content */}
-      <div className="container-custom relative z-10 py-24 lg:py-32">
+      <div className="container-custom relative z-10 py-16 sm:py-24 lg:py-32">
         <div className="max-w-[640px]">
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 bg-white/10 text-white border border-white/15">
             IT Consulting &amp; Web Development
