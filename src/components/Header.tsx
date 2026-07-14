@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -21,6 +21,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 8)
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -39,51 +40,52 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 bg-white transition-shadow duration-300"
-      style={{ boxShadow: isScrolled ? '0 2px 16px rgba(15,23,42,0.10)' : '0 1px 0 #E2E8F0' }}
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        isScrolled
+          ? 'border-slate-200 bg-white/85 shadow-[0_2px_20px_rgba(15,23,42,0.08)] backdrop-blur-xl'
+          : 'border-transparent bg-white/70 backdrop-blur-xl'
+      }`}
     >
-      <nav className="container-custom py-4">
+      <nav className="container-custom py-3.5">
         <div className="flex items-center justify-between">
-
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
+          <Link href="/" className="flex flex-shrink-0 items-center gap-3">
             <Image
               src="/images/Logo Bizgen.png"
               alt="BizGen Technologies"
               width={120}
               height={40}
-              className="h-10 w-auto"
+              className="h-9 w-auto"
               priority
             />
             <div className="flex flex-col leading-none">
-              <span className="text-primary-navy font-bold text-base">BizGen Technologies</span>
-              <span className="text-text-gray text-xs">BG Tech</span>
+              <span className="font-heading text-[15px] font-semibold text-slate-deep">
+                BizGen Technologies
+              </span>
+              <span className="label-mono text-[10px] text-text-gray">BG Tech</span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop nav */}
+          <div className="hidden items-center gap-9 md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleSmoothScroll(e, link.scrollId)}
-                className="text-neutral-dark hover:text-primary-blue font-medium transition-colors duration-150 text-sm"
+                className="font-heading text-sm font-medium text-text-main transition-colors duration-150 hover:text-electric-blue"
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="btn-primary text-sm px-5 py-2.5 rounded-lg"
-            >
-              Schedule a Consultation
+            <Link href="/contact" className="btn-pill px-6 py-2.5 text-[13px]">
+              Schedule a Consultation <ArrowRight size={14} />
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 text-neutral-dark rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+            className="cursor-pointer rounded-lg p-2 text-slate-deep transition-colors hover:bg-slate-100 md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
@@ -92,26 +94,29 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation overlay */}
+        {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
+          <div className="mt-4 border-t border-slate-100 pb-3 pt-4 md:hidden">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => { handleSmoothScroll(e, link.scrollId); setIsMenuOpen(false) }}
-                  className="text-neutral-dark hover:text-primary-blue font-medium py-2.5 px-2 rounded-lg hover:bg-blue-50 transition-colors"
+                  onClick={(e) => {
+                    handleSmoothScroll(e, link.scrollId)
+                    setIsMenuOpen(false)
+                  }}
+                  className="rounded-lg px-2 py-2.5 font-heading font-medium text-text-main transition-colors hover:bg-blue-50 hover:text-electric-blue"
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 href="/contact"
-                className="btn-primary text-center mt-2"
+                className="btn-pill mt-3 w-full"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Schedule a Consultation
+                Schedule a Consultation <ArrowRight size={14} />
               </Link>
             </div>
           </div>

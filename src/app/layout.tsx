@@ -1,21 +1,23 @@
 import type { Metadata } from 'next'
-import { Lexend, Source_Sans_3 } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
+import { GeistSans } from 'geist/font/sans'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const lexend = Lexend({
+// Geist → headings, UI, navigation. Inter → body. JetBrains Mono → technical labels only.
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-lexend',
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700', '800'],
-})
-
-const sourceSans = Source_Sans_3({
-  subsets: ['latin'],
-  variable: '--font-source-sans',
+  variable: '--font-inter',
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+  weight: ['500', '600'],
 })
 
 export const metadata: Metadata = {
@@ -54,8 +56,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${lexend.variable} ${sourceSans.variable}`}>
-      <body className={`${sourceSans.className} antialiased`}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className={`${inter.className} antialiased`}>
         <Header />
         <main>{children}</main>
         <Footer />

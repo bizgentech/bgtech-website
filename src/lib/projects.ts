@@ -62,7 +62,7 @@ export const inHouseProjects: InHouseProject[] = [
     title: 'Matter IQ',
     description:
       'A legal billing automation platform in development — time tracking, invoicing, and practice-management integrations for law firms.',
-    tags: ['Next.js', 'NestJS', 'Stripe', 'PostgreSQL'],
+    tags: ['Next.js', 'NestJS', 'PostgreSQL', 'TypeScript'],
     href: '/portfolio/matter-iq',
     status: 'Beta',
     gradient: 'from-violet-700 to-violet-500',
@@ -71,7 +71,7 @@ export const inHouseProjects: InHouseProject[] = [
     title: 'Cerebro Field',
     description:
       'A field-service dispatch and technician-management platform in development — route planning, job scheduling, and live status tracking.',
-    tags: ['React', 'NestJS', 'Maps API', 'PostgreSQL'],
+    tags: ['React', 'NestJS', 'PostgreSQL', 'TypeScript'],
     href: '/portfolio/cerebro-field',
     status: 'Beta',
     gradient: 'from-orange-700 to-amber-500',
@@ -80,7 +80,7 @@ export const inHouseProjects: InHouseProject[] = [
     title: 'Washapp',
     description:
       'An on-demand mobile car-wash concept connecting customers with service providers via GPS-based matching and real-time dispatch.',
-    tags: ['React Native', 'Node.js', 'Stripe Connect', 'GPS'],
+    tags: ['React Native', 'Node.js', 'PostgreSQL', 'TypeScript'],
     href: '/portfolio/washapp',
     status: 'Concept',
     gradient: 'from-cyan-700 to-cyan-500',

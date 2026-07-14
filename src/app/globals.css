@@ -8,16 +8,36 @@
   }
 
   body {
-    @apply bg-neutral-light text-neutral-dark;
+    @apply bg-neutral-light text-neutral-dark font-body;
   }
 
+  /* Geist for all headings / UI. Inter (body class) for prose. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+  }
+
+}
+
+/* ── Reduced motion ──
+   Written as a flat, top-level block on purpose: nesting @media inside a
+   selector inside @layer compiled to a media query with NO selector (invalid,
+   silently did nothing). This version actually applies. */
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    @media (prefers-reduced-motion: reduce) {
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
-    }
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  /* Drop the looping hero video — the poster still frame remains. */
+  .hero-video {
+    display: none !important;
   }
 }
 
@@ -33,6 +53,42 @@
 
   .btn-ghost {
     @apply bg-transparent text-primary-blue px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200 cursor-pointer;
+  }
+
+  /* ── Design-system buttons (pill) ── */
+  .btn-pill {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-electric-blue px-7 py-3.5 font-heading text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-xl;
+  }
+
+  .btn-pill-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 font-heading text-sm font-semibold text-slate-deep transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md;
+  }
+
+  .btn-pill-ghost-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-3.5 font-heading text-sm font-semibold text-white backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10;
+  }
+
+  /* ── Technical label (JetBrains Mono — use sparingly) ── */
+  .label-mono {
+    @apply inline-flex items-center rounded-full font-mono text-[11px] font-semibold uppercase tracking-[0.14em];
+  }
+
+  /* ── Glass panel for floating UI layers over the hero video ── */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ── Subtle grid pattern (Stitch hero backdrop) ── */
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
   }
 
   /* ── Layout helpers ── */

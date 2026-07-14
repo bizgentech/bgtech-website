@@ -76,10 +76,12 @@ export default function FeaturedProjectCard({
       {/* Info */}
       <div className={reverse ? 'lg:order-1' : ''}>
         <div className="flex items-center gap-3 mb-4">
-          <span className="section-label">{category}</span>
+          <span className="label-mono border border-electric-blue/25 bg-electric-blue/10 px-3 py-1.5 text-[10px] text-electric-blue">
+            {category}
+          </span>
           <StatusBadge status={status} />
         </div>
-        <h3 className="heading-sm text-primary-navy mb-4">{title}</h3>
+        <h3 className="font-heading text-2xl md:text-3xl font-bold text-slate-deep mb-4">{title}</h3>
         <p className="text-text-gray text-base leading-relaxed mb-6">{description}</p>
 
         <div className="flex flex-wrap gap-2 mb-8">
@@ -93,12 +95,7 @@ export default function FeaturedProjectCard({
           ))}
         </div>
 
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 btn-primary px-6 py-3 rounded-xl text-sm"
-        >
+        <a href={url} target="_blank" rel="noopener noreferrer" className="btn-pill">
           Visit Site <ArrowUpRight size={16} />
         </a>
       </div>
