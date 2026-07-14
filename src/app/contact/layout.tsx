@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | BizGen Technologies LLC',
+  title: 'Contact Us',
   description:
     'Get in touch with BizGen Technologies for IT Consulting & Managed Support and Web Design & Development for small businesses in South Florida.',
 }

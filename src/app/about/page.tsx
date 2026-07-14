@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import CTASection from '@/components/CTASection'
+import HeroBackground from '@/components/HeroBackground'
 import {
   Check,
   Server,
@@ -51,8 +52,13 @@ export default function AboutPage() {
   return (
     <>
       {/* ── Page Hero ── */}
-      <section className="gradient-navy-blue section-padding">
-        <div className="container-custom">
+      <section className="relative overflow-hidden min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] flex items-center bg-primary-navy">
+        <HeroBackground
+          src="/images/hero/software-development.jpg"
+          alt="Team collaborating on a web and technology project"
+          position="center"
+        />
+        <div className="container-custom relative z-10 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 bg-white/10 text-white border border-white/15">
               About BizGen

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Clock, MessageCircle, CalendarClock } from 'lucide-react'
+import HeroBackground from '@/components/HeroBackground'
 
 const inputClass =
   'w-full px-4 py-3 border border-slate-200 rounded-xl bg-white text-neutral-dark placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-150 text-sm'
@@ -66,8 +67,13 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="gradient-navy-blue section-padding">
-        <div className="container-custom">
+      <section className="relative overflow-hidden min-h-[420px] sm:min-h-[460px] lg:min-h-[500px] flex items-center bg-primary-navy">
+        <HeroBackground
+          src="/images/hero/it-management.jpg"
+          alt="Get in touch with BizGen Technologies"
+          position="50% 30%"
+        />
+        <div className="container-custom relative z-10 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 bg-white/10 text-white border border-white/15">
               Get In Touch
