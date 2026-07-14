@@ -77,7 +77,7 @@ export default function Header() {
               href="/contact"
               className="btn-primary text-sm px-5 py-2.5 rounded-lg"
             >
-              Get Started
+              Schedule a Consultation
             </Link>
           </div>
 
@@ -111,7 +111,7 @@ export default function Header() {
                 className="btn-primary text-center mt-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Get Started
+                Schedule a Consultation
               </Link>
             </div>
           </div>

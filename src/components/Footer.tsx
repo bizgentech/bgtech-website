@@ -11,10 +11,8 @@ const quickLinks = [
 ]
 
 const serviceLinks = [
-  { label: 'IT & Cybersecurity Consulting', href: '/services/it-cybersecurity-consulting' },
-  { label: 'Software & Web Development', href: '/services/software-web-development' },
-  { label: 'IT Equipment Disposal', href: '/services/it-equipment-disposal' },
-  { label: 'Kiosk Consulting & Solutions', href: '/services/kiosk-consulting-solutions' },
+  { label: 'IT Consulting & Managed Support', href: '/services/it-consulting-managed-support' },
+  { label: 'Web Design & Development', href: '/services/web-design-development' },
 ]
 
 const socialLinks = [

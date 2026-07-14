@@ -7,6 +7,7 @@ export const metadata = {
   title: 'IT Equipment Pickup, Data Destruction & Disposal | BizGen Technologies LLC',
   description:
     'Certified data destruction, secure hardware pickup, and responsible IT equipment recycling. Protect your data when decommissioning assets.',
+  robots: { index: false, follow: true },
 }
 
 const services = [

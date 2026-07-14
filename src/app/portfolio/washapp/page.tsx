@@ -5,17 +5,17 @@ import { Check, ArrowLeft } from 'lucide-react'
 export const metadata = {
   title: 'Washapp — Portfolio | BizGen Technologies LLC',
   description:
-    'On-demand mobile car wash platform connecting customers with service providers through GPS-based matching and real-time dispatch.',
+    'On-demand mobile car wash — a product concept exploring GPS-based matching and real-time dispatch for a two-sided marketplace.',
 }
 
-const tech = ['React Native', 'Node.js', 'PostgreSQL', 'Stripe Connect', 'GPS / Maps API', 'Expo']
+const tech = ['React Native', 'Node.js', 'PostgreSQL', 'TypeScript']
 
 const features = [
   'Customer app: book on-demand or scheduled washes',
   'Provider app: accept jobs, navigate, and track earnings',
   'GPS-based provider matching (nearest available)',
   'Real-time job status and ETA tracking',
-  'Stripe Connect for split payments & provider payouts',
+  'Split payments and provider payouts',
   'Photo proof of completion',
   'Customer rating & review system',
   'Dynamic pricing based on vehicle size and service type',
@@ -32,7 +32,7 @@ export default function WashappPage() {
             <ArrowLeft size={15} /> Back to Portfolio
           </Link>
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="badge-warning">In Development</span>
+            <span className="badge-warning">Concept</span>
             <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-white/10 text-white/70 border border-white/15">
               On-Demand Services
             </span>
@@ -51,18 +51,18 @@ export default function WashappPage() {
               <span className="section-label mb-4">The Project</span>
               <h2 className="heading-md text-primary-navy mt-4 mb-5">Overview</h2>
               <p className="text-text-gray text-base leading-relaxed mb-4">
-                Washapp is a two-sided marketplace for mobile car washing — think Uber, but for vehicle detailing. Customers open the app, choose a service tier, and a vetted washer comes to them — at home, at work, wherever the car is parked.
+                Washapp is a product concept for a two-sided marketplace for mobile car washing — think Uber, but for vehicle detailing. The concept explores how a customer could choose a service tier and have a vetted washer come to them — at home, at work, wherever the car is parked.
               </p>
               <p className="text-text-gray text-base leading-relaxed mb-4">
-                The platform handles the full transaction lifecycle: GPS-based matching, job acceptance, real-time tracking, payment splitting via Stripe Connect, and post-service reviews. Providers have a separate driver-style app for managing their availability and earnings.
+                It explores the full transaction lifecycle: GPS-based matching, job acceptance, real-time tracking, payment splitting, and post-service reviews — with a separate provider-facing app for managing availability and earnings.
               </p>
               <p className="text-text-gray text-base leading-relaxed">
-                Built with React Native for cross-platform iOS and Android deployment from a single codebase, with a Node.js backend and PostgreSQL for reliability at scale.
+                The concept is designed around React Native for cross-platform iOS and Android from a single codebase, with a Node.js backend and PostgreSQL.
               </p>
             </div>
             <div className="space-y-4">
               {[
-                { label: 'Status', value: 'In Development' },
+                { label: 'Status', value: 'Concept' },
                 { label: 'Platform', value: 'iOS & Android (React Native)' },
                 { label: 'Model', value: 'Two-sided Marketplace' },
               ].map(({ label, value }) => (
@@ -72,7 +72,7 @@ export default function WashappPage() {
                 </div>
               ))}
               <div className="clean-card p-6">
-                <p className="text-xs font-bold uppercase tracking-wide text-text-gray mb-3">Tech Stack</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-gray mb-3">Core Stack</p>
                 <div className="flex flex-wrap gap-2">
                   {tech.map((t) => <span key={t} className="badge-blue">{t}</span>)}
                 </div>
@@ -85,8 +85,11 @@ export default function WashappPage() {
       <section className="section-padding bg-white">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-10">
-            <span className="section-label mb-4">Features</span>
-            <h2 className="heading-lg text-primary-navy mt-4">Key Capabilities</h2>
+            <span className="section-label mb-4">Concept</span>
+            <h2 className="heading-lg text-primary-navy mt-4 mb-3">Concept Scope</h2>
+            <p className="text-text-gray text-sm max-w-2xl mx-auto">
+              Capabilities explored in this product concept. Washapp is a UX and business-workflow exploration, not an available app.
+            </p>
           </div>
           <div className="clean-card p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -103,7 +106,7 @@ export default function WashappPage() {
 
       <CTASection
         title="Building a Marketplace App?"
-        description="We have deep experience with two-sided platforms, GPS matching, and Stripe Connect. Let's talk."
+        description="We design and prototype two-sided marketplace apps — from GPS matching to payment flows. Let's talk."
         primaryButtonText="Start a Project"
         primaryButtonHref="/contact"
         secondaryButtonText="View All Projects"

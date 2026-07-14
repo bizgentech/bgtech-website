@@ -24,7 +24,7 @@ const slides: Slide[] = [
     title: 'Enterprise IT Support Without the Enterprise Price Tag',
     description:
       'Get an entire team of Microsoft experts, hardware specialists, and cybersecurity professionals for less than hiring one IT engineer.',
-    primaryBtn: { text: 'Our IT Services', href: '/services/it-cybersecurity-consulting' },
+    primaryBtn: { text: 'Our IT Services', href: '/services/it-consulting-managed-support' },
     secondaryBtn: { text: 'Calculate Savings', href: '/contact' },
     image: '/images/hero/it-management.jpg',
     imageAlt: 'IT support professionals monitoring secure network infrastructure',

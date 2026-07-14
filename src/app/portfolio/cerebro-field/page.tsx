@@ -5,10 +5,10 @@ import { Check, ArrowLeft } from 'lucide-react'
 export const metadata = {
   title: 'Cerebro Field — Portfolio | BizGen Technologies LLC',
   description:
-    'Field service dispatcher and technician management system with route optimization, job scheduling, and live status tracking.',
+    'Field service dispatch and technician management system in beta — route optimization, job scheduling, and live status tracking.',
 }
 
-const tech = ['React', 'NestJS', 'PostgreSQL', 'Google Maps API', 'TypeScript', 'Redis']
+const tech = ['React', 'NestJS', 'PostgreSQL', 'TypeScript']
 
 const features = [
   'Drag-and-drop job scheduling board',
@@ -56,10 +56,10 @@ export default function CerebroFieldPage() {
                 Managing a mobile workforce — HVAC techs, electricians, plumbers, IT field engineers — involves a constant juggling act: who&apos;s available, where are they, which jobs are highest priority, and how do you get everyone to the right place at the right time?
               </p>
               <p className="text-text-gray text-base leading-relaxed mb-4">
-                Cerebro Field is a dispatcher-first FSM (Field Service Management) platform. The dispatch board gives coordinators a real-time map view of every technician, with drag-and-drop job assignment and automated route optimization to maximize daily job throughput.
+                Cerebro Field is a dispatcher-first FSM (Field Service Management) platform. The dispatch board is designed to give coordinators a real-time map view of every technician, with drag-and-drop job assignment and automated route optimization.
               </p>
               <p className="text-text-gray text-base leading-relaxed">
-                Technicians get a simple mobile app that shows them their schedule, navigates them to each job, and lets them capture signatures, photos, and parts used on-site. Currently in beta with service companies in South Florida.
+                A companion mobile app is designed to show technicians their schedule, navigate them to each job, and capture signatures, photos, and parts used on-site. Cerebro Field is currently in beta and undergoing testing.
               </p>
             </div>
             <div className="space-y-4">
@@ -74,7 +74,7 @@ export default function CerebroFieldPage() {
                 </div>
               ))}
               <div className="clean-card p-6">
-                <p className="text-xs font-bold uppercase tracking-wide text-text-gray mb-3">Tech Stack</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-gray mb-3">Core Stack</p>
                 <div className="flex flex-wrap gap-2">
                   {tech.map((t) => <span key={t} className="badge-blue">{t}</span>)}
                 </div>
@@ -87,8 +87,11 @@ export default function CerebroFieldPage() {
       <section className="section-padding bg-white">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-10">
-            <span className="section-label mb-4">Features</span>
-            <h2 className="heading-lg text-primary-navy mt-4">Key Capabilities</h2>
+            <span className="section-label mb-4">Capabilities</span>
+            <h2 className="heading-lg text-primary-navy mt-4 mb-3">What&apos;s Being Built</h2>
+            <p className="text-text-gray text-sm max-w-2xl mx-auto">
+              Cerebro Field is in beta. Some capabilities are built and in testing; others are planned.
+            </p>
           </div>
           <div className="clean-card p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -99,24 +102,6 @@ export default function CerebroFieldPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding gradient-light">
-        <div className="container-custom max-w-4xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { value: '30%', label: 'More jobs completed per day' },
-              { value: '50%', label: 'Less dispatcher overhead' },
-              { value: 'Real-time', label: 'Technician location tracking' },
-              { value: '100%', label: 'Paperless job completion' },
-            ].map(({ value, label }) => (
-              <div key={label} className="clean-card p-6">
-                <p className="text-2xl font-extrabold text-primary-blue mb-1 leading-tight">{value}</p>
-                <p className="text-text-gray text-xs">{label}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -5,15 +5,15 @@ import { Check, ArrowLeft } from 'lucide-react'
 export const metadata = {
   title: 'Matter IQ — Portfolio | BizGen Technologies LLC',
   description:
-    'Legal billing automation platform for law firms. Tracks time, automates invoicing, and integrates with major practice management systems.',
+    'Legal billing platform in beta for law firms — time tracking, invoicing, and planned integrations with major practice management systems.',
 }
 
-const tech = ['Next.js', 'NestJS', 'PostgreSQL', 'Stripe', 'TypeScript', 'Redis']
+const tech = ['Next.js', 'NestJS', 'PostgreSQL', 'TypeScript']
 
 const features = [
   'Matter-based time tracking with automatic billing rates',
   'LEDES billing format export',
-  'Stripe payment integration for online retainer collection',
+  'Online payment integration for retainer collection',
   'Automated invoice generation and delivery',
   'Trust accounting & IOLTA compliance tools',
   'Client portal for invoice review and payment',
@@ -51,13 +51,13 @@ export default function MatterIQPage() {
               <span className="section-label mb-4">The Project</span>
               <h2 className="heading-md text-primary-navy mt-4 mb-5">Overview</h2>
               <p className="text-text-gray text-base leading-relaxed mb-4">
-                Law firms lose an estimated 30–40% of billable time due to poor time-tracking habits, billing delays, and the friction of invoicing. Matter IQ was built to close that gap.
+                Law firms can lose a significant share of billable time to inconsistent time-tracking habits, billing delays, and the friction of invoicing. Matter IQ is being built to close that gap.
               </p>
               <p className="text-text-gray text-base leading-relaxed mb-4">
-                The platform provides attorneys with frictionless time capture — from any device, in real time — and automatically structures that time into LEDES-compliant invoices ready to send with one click. Clients pay online through a branded portal, and funds flow directly to the firm&apos;s trust or operating account.
+                The platform is designed to give attorneys frictionless time capture from any device, and to structure that time into LEDES-compliant invoices ready to send. A branded client portal for online payment is part of the design.
               </p>
               <p className="text-text-gray text-base leading-relaxed">
-                Currently in beta with select small and mid-size firms. Integration with the top three practice management platforms is live.
+                Matter IQ is currently in beta. Integrations with major practice management platforms are on the development roadmap.
               </p>
             </div>
             <div className="space-y-4">
@@ -72,7 +72,7 @@ export default function MatterIQPage() {
                 </div>
               ))}
               <div className="clean-card p-6">
-                <p className="text-xs font-bold uppercase tracking-wide text-text-gray mb-3">Tech Stack</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-gray mb-3">Core Stack</p>
                 <div className="flex flex-wrap gap-2">
                   {tech.map((t) => <span key={t} className="badge-blue">{t}</span>)}
                 </div>
@@ -85,8 +85,11 @@ export default function MatterIQPage() {
       <section className="section-padding bg-white">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-10">
-            <span className="section-label mb-4">Features</span>
-            <h2 className="heading-lg text-primary-navy mt-4">Key Capabilities</h2>
+            <span className="section-label mb-4">Roadmap</span>
+            <h2 className="heading-lg text-primary-navy mt-4 mb-3">Capabilities</h2>
+            <p className="text-text-gray text-sm max-w-2xl mx-auto">
+              Matter IQ is in beta. The list below spans capabilities that are built, in testing, or planned — including third-party integrations still on the roadmap.
+            </p>
           </div>
           <div className="clean-card p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -97,24 +100,6 @@ export default function MatterIQPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding gradient-light">
-        <div className="container-custom max-w-4xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { value: '40%', label: 'More billable time captured' },
-              { value: '80%', label: 'Less time on invoicing admin' },
-              { value: '3x', label: 'Faster client payment' },
-              { value: '100%', label: 'LEDES billing compliance' },
-            ].map(({ value, label }) => (
-              <div key={label} className="clean-card p-6">
-                <p className="text-3xl font-extrabold text-primary-blue mb-1">{value}</p>
-                <p className="text-text-gray text-xs">{label}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -1,123 +1,75 @@
-import Link from 'next/link'
+import type { Metadata } from 'next'
+import FeaturedProjectCard from '@/components/FeaturedProjectCard'
+import ProjectCard from '@/components/ProjectCard'
 import CTASection from '@/components/CTASection'
-import { ArrowRight } from 'lucide-react'
+import { featuredProjects, inHouseProjects } from '@/lib/projects'
 
-export const metadata = {
-  title: 'Portfolio | BizGen Technologies LLC',
+export const metadata: Metadata = {
+  title: 'Portfolio',
   description:
-    'Real solutions we\'ve built for real businesses — from legal billing automation to field service management platforms.',
+    'Client websites BizGen Technologies has built for South Florida businesses, plus the in-house platforms our team is developing.',
 }
-
-const projects = [
-  {
-    title: 'CTI Pro Labs',
-    subtitle: 'Laboratory Management System',
-    description: 'Construction testing operations platform with automated workflows, QR-based chain of custody, and compliance reporting.',
-    tags: ['React', 'NestJS', 'PostgreSQL', 'PWA'],
-    status: 'In Development',
-    statusClass: 'badge-warning',
-    href: '/portfolio/cti-pro-labs',
-    gradient: 'from-blue-700 to-blue-500',
-  },
-  {
-    title: 'Matter IQ',
-    subtitle: 'Legal Billing Automation',
-    description: 'Time tracking and billing platform for law firms. Automated LEDES invoicing, Stripe payment collection, and practice management integrations.',
-    tags: ['Next.js', 'NestJS', 'Stripe', 'PostgreSQL'],
-    status: 'Beta',
-    statusClass: 'badge-cyan',
-    href: '/portfolio/matter-iq',
-    gradient: 'from-violet-700 to-violet-500',
-  },
-  {
-    title: 'Washapp',
-    subtitle: 'On-Demand Mobile Car Wash',
-    description: 'Two-sided marketplace connecting customers with mobile car wash providers via GPS matching, real-time tracking, and Stripe Connect.',
-    tags: ['React Native', 'Node.js', 'Stripe Connect', 'GPS'],
-    status: 'In Development',
-    statusClass: 'badge-warning',
-    href: '/portfolio/washapp',
-    gradient: 'from-cyan-700 to-cyan-500',
-  },
-  {
-    title: 'Sentinel MSP Platform',
-    subtitle: 'Self-Hosted MSP Infrastructure',
-    description: 'Internal MSP platform with RMM, ticketing, asset management, and client portals. Multi-tenant, Dockerized, full data sovereignty.',
-    tags: ['Next.js', 'NestJS', 'PostgreSQL', 'Docker'],
-    status: 'Operational',
-    statusClass: 'badge-success',
-    href: '/portfolio/sentinel-msp',
-    gradient: 'from-slate-700 to-slate-500',
-  },
-  {
-    title: 'Cerebro Field',
-    subtitle: 'Field Service Dispatcher',
-    description: 'Dispatcher and technician management system with drag-and-drop scheduling, route optimization, and live GPS tracking.',
-    tags: ['React', 'NestJS', 'Maps API', 'PostgreSQL'],
-    status: 'Beta',
-    statusClass: 'badge-cyan',
-    href: '/portfolio/cerebro-field',
-    gradient: 'from-orange-700 to-amber-500',
-  },
-]
 
 export default function PortfolioPage() {
   return (
     <>
+      {/* ── Hero ── */}
       <section className="gradient-navy-blue section-padding">
         <div className="container-custom">
           <div className="max-w-3xl">
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 bg-white/10 text-white border border-white/15">
               Our Work
             </span>
-            <h1 className="heading-xl text-white mb-4">Featured Projects</h1>
+            <h1 className="heading-xl text-white mb-4">Our Work</h1>
             <p className="text-white/80 text-xl leading-relaxed">
-              Real solutions we&apos;ve built for real businesses — across construction, legal, on-demand services, IT infrastructure, and field operations.
+              Real client websites we&apos;ve built for South Florida businesses — plus a look at the
+              in-house platforms our team is developing.
             </p>
           </div>
         </div>
       </section>
 
+      {/* ── Featured Client Work ── */}
       <section className="section-padding gradient-light">
         <div className="container-custom">
+          <div className="text-center mb-14">
+            <span className="section-label mb-4">Featured Client Work</span>
+            <h2 className="heading-lg text-primary-navy mt-4 mb-4">Client Websites</h2>
+          </div>
+          <div className="space-y-16 lg:space-y-24 max-w-6xl mx-auto">
+            {featuredProjects.map((p, i) => (
+              <FeaturedProjectCard key={p.title} {...p} reverse={i % 2 === 1} priority={i === 0} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── In-House Platforms ── */}
+      <section className="section-padding gradient-navy-blue">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4 bg-white/10 text-white border border-white/15">
+              In-House Platforms
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-4 mb-4">Products We&apos;re Building</h2>
+            <p className="text-white/70 text-lg max-w-2xl mx-auto">
+              Internal platforms at various stages of development. Each one shows its current stage.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((p) => (
-              <Link key={p.title} href={p.href} className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded-2xl">
-                <div className="dark-card h-full flex flex-col overflow-hidden cursor-pointer">
-                  <div className={`bg-gradient-to-br ${p.gradient} h-40 flex items-center justify-center relative`}>
-                    <span className="text-white/20 text-5xl font-black select-none">{p.title.slice(0, 2).toUpperCase()}</span>
-                    <div className="absolute top-3 right-3">
-                      <span className={p.statusClass}>{p.status}</span>
-                    </div>
-                  </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <p className="text-white/50 text-xs font-semibold uppercase tracking-wide mb-1">{p.subtitle}</p>
-                    <h2 className="text-lg font-bold text-white mb-2">{p.title}</h2>
-                    <p className="text-slate-300 text-sm leading-relaxed flex-1 mb-4">{p.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {p.tags.map((tag) => (
-                        <span key={tag} className="px-2.5 py-1 rounded-full text-xs font-medium bg-white/10 text-white/70 border border-white/10">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex items-center gap-1.5 text-primary-blue font-semibold text-sm group-hover:gap-3 transition-all duration-200">
-                      View Case Study <ArrowRight size={14} />
-                    </div>
-                  </div>
-                </div>
-              </Link>
+            {inHouseProjects.map((p) => (
+              <ProjectCard key={p.title} {...p} />
             ))}
           </div>
         </div>
       </section>
 
       <CTASection
-        title="Want to See Your Project Here?"
-        description="We'd love to build your next solution. Let's start with a conversation."
-        primaryButtonText="Start a Project"
+        title="Let's Discuss What Your Business Needs"
+        description="Whether it's your technology or your website, let's start with a conversation."
+        primaryButtonText="Schedule a Consultation"
         primaryButtonHref="/contact"
-        secondaryButtonText="Our Services"
+        secondaryButtonText="Explore Our Services"
         secondaryButtonHref="/#services"
       />
     </>

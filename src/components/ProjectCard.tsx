@@ -6,12 +6,12 @@ interface ProjectCardProps {
   description: string
   tags: string[]
   href?: string
-  status?: 'In Development' | 'Beta' | 'Operational' | 'Active'
+  status?: 'In Development' | 'Beta' | 'Concept' | 'Operational' | 'Active' | 'Live'
   gradient?: string
 }
 
 function StatusBadge({ status }: { status: string }) {
-  if (status === 'Operational' || status === 'Active') {
+  if (status === 'Operational' || status === 'Active' || status === 'Live') {
     return <span className="badge-success">{status}</span>
   }
   if (status === 'Beta') {

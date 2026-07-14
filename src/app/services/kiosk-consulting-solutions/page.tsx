@@ -7,6 +7,7 @@ export const metadata = {
   title: 'Kiosk Consulting & Solutions | BizGen Technologies LLC',
   description:
     'End-to-end self-service kiosk consulting, hardware selection, software development, and deployment for retail, banking, and hospitality.',
+  robots: { index: false, follow: true },
 }
 
 const offerings = [

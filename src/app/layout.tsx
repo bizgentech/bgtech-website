@@ -19,37 +19,36 @@ const sourceSans = Source_Sans_3({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.bgtecnologies.com'),
   title: {
-    default: 'BizGen Technologies LLC — IT, Cybersecurity & Software Development',
+    default: 'BizGen Technologies — IT Consulting & Web Design for Small Businesses',
     template: '%s | BizGen Technologies LLC',
   },
   description:
-    'Dania Beach, FL-based technology company specializing in IT & Cybersecurity Consulting, Custom Software Development, IT Equipment Disposal, and Kiosk Solutions. Solving problems since 2020.',
+    'IT consulting, managed IT support, and business website design for small businesses in Miami, Broward, and South Florida. Practical technology solutions from one partner.',
   keywords: [
-    'IT consulting',
-    'cybersecurity',
-    'managed IT services',
-    'software development',
-    'web development',
-    'IT equipment disposal',
-    'data destruction',
-    'kiosk solutions',
-    'self-service kiosks',
-    'Fort Lauderdale',
+    'IT consulting for small businesses',
+    'managed IT support',
+    'small business IT support',
+    'business website design',
+    'web design South Florida',
+    'web design Miami',
+    'Microsoft 365 support',
+    'Broward IT services',
     'Dania Beach',
-    'Florida',
     'BizGen Technologies',
     'BG Tech',
   ],
   authors: [{ name: 'BizGen Technologies LLC', url: 'https://www.bgtecnologies.com' }],
+  alternates: { canonical: 'https://www.bgtecnologies.com' },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.bgtecnologies.com',
     siteName: 'BizGen Technologies LLC',
-    title: 'BizGen Technologies LLC — IT, Cybersecurity & Software Development',
+    title: 'BizGen Technologies — IT Consulting & Web Design for Small Businesses',
     description:
-      'Enterprise-grade IT support, cybersecurity, and custom software for growing businesses. Solving problems since 2020.',
+      'IT consulting, managed IT support, and business website design for small businesses in Miami and Broward. Practical technology from one partner.',
   },
 }
 

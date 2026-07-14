@@ -5,10 +5,10 @@ import { Check, ArrowLeft } from 'lucide-react'
 export const metadata = {
   title: 'CTI Pro Labs — Portfolio | BizGen Technologies LLC',
   description:
-    'Laboratory management system for construction testing operations with automated workflows, real-time sample tracking, and compliance reporting.',
+    'Laboratory management system in development for construction testing operations — designed for automated workflows, sample tracking, and compliance reporting.',
 }
 
-const tech = ['React', 'NestJS', 'PostgreSQL', 'PWA', 'TypeScript', 'Docker']
+const tech = ['React', 'NestJS', 'PostgreSQL', 'TypeScript', 'PWA']
 
 const challenges = [
   'Manual paper-based sample tracking causing lost records and compliance issues',
@@ -66,10 +66,10 @@ export default function CTIProLabsPage() {
                 Construction testing laboratories perform critical quality assurance work — soil compaction, concrete strength, asphalt density — that underpins building safety. But most labs still run on paper logs, spreadsheets, and disconnected tools.
               </p>
               <p className="text-text-gray text-base leading-relaxed mb-4">
-                CTI Pro Labs replaces that chaos with a unified digital platform that tracks every sample from intake through final report, automates compliance documentation, and gives project managers real-time visibility across all active tests.
+                CTI Pro Labs is being built to replace that with a unified digital platform designed to track every sample from intake through final report, automate compliance documentation, and give project managers visibility across active tests.
               </p>
               <p className="text-text-gray text-base leading-relaxed">
-                Built as a Progressive Web App (PWA), it works on any device — including tablets in the field with offline support.
+                It is being developed as a Progressive Web App (PWA), designed to work on any device — including tablets in the field with offline support.
               </p>
             </div>
             <div className="space-y-4">
@@ -83,7 +83,7 @@ export default function CTIProLabsPage() {
                 </div>
               ))}
               <div className="clean-card p-6">
-                <p className="text-xs font-bold uppercase tracking-wide text-text-gray mb-3">Tech Stack</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-gray mb-3">Core Stack</p>
                 <div className="flex flex-wrap gap-2">
                   {tech.map((t) => <span key={t} className="badge-blue">{t}</span>)}
                 </div>
@@ -108,7 +108,7 @@ export default function CTIProLabsPage() {
               </ul>
             </div>
             <div className="clean-card p-8">
-              <h3 className="text-xl font-bold text-primary-navy mb-5">Our Solution</h3>
+              <h3 className="text-xl font-bold text-primary-navy mb-5">Our Approach</h3>
               <ul className="space-y-3">
                 {solutions.map((s) => (
                   <li key={s} className="flex items-start gap-3 text-sm text-text-gray">
@@ -125,8 +125,11 @@ export default function CTIProLabsPage() {
       <section className="section-padding gradient-light">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-10">
-            <span className="section-label mb-4">Features</span>
-            <h2 className="heading-lg text-primary-navy mt-4">Key Capabilities</h2>
+            <span className="section-label mb-4">Roadmap</span>
+            <h2 className="heading-lg text-primary-navy mt-4 mb-3">Planned Capabilities</h2>
+            <p className="text-text-gray text-sm max-w-2xl mx-auto">
+              The platform is being built around these capabilities. Some are prototyped and others are on the development roadmap.
+            </p>
           </div>
           <div className="clean-card p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
